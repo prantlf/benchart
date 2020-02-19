@@ -1,0 +1,50 @@
+[
+  {
+    "name": "A suite",
+    "benchmarks": [
+      {
+        "name": "String#match",
+        "aborted": false,
+        "hz": 21672040.42791444,
+        "stats": {
+          "rme": 2.3315075491555657,
+          "mean": 4.61424019268606e-8
+        }
+      },
+      {
+        "name": "RegExp#test",
+        "aborted": false,
+        "hz": 41994328.7596832,
+        "stats": {
+          "rme": 2.073766112802081,
+          "mean": 2.3812739232542595e-8
+        }
+      }
+    ]
+  },
+  {
+    "name": "B suite",
+    "benchmarks": [
+      {
+        "name": "Benchmark with error",
+        "error": {
+          "message": "text is not defined"
+        },
+        "aborted": true
+      },
+      {
+        "name": "Aborted benchmark",
+        "aborted": true
+      },
+      {
+        "name": "Deferred benchmark",
+        "aborted": false,
+        "hz": 211.47553654703322,
+        "stats": {
+          "rme": 0.9212292557297209,
+          "mean": 0.0047286793372319684
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "name": "A suite",
+    "benchmarks": [
+      {
+        "name": "String#match",
+        "aborted": false,
+        "hz": 19961893.111946862,
+        "stats": {
+          "rme": 2.7480275484104175,
+          "mean": 5.009544908350985e-8
+        }
+      },
+      {
+        "name": "RegExp#test",
+        "aborted": false,
+        "hz": 37492842.54302616,
+        "stats": {
+          "rme": 4.187208800236359,
+          "mean": 2.6671757385490757e-8
+        }
+      }
+    ]
+  },
+  {
+    "name": "B suite",
+    "benchmarks": [
+      {
+        "name": "Benchmark with error",
+        "error": {
+          "message": "text is not defined",
+          "name": "ReferenceError",
+          "stack": "ReferenceError: text is not defined\n    at Benchmark.<anonymous> (test/example/bench.js:19:5)\n    at Benchmark.uid1581858967893createFunction (<anonymous>:3:142)"
+        },
+        "aborted": true,
+        "hz": 0,
+        "stats": {
+          "rme": 0,
+          "mean": 0
+        }
+      },
+      {
+        "name": "Deferred benchmark",
+        "aborted": false,
+        "hz": 227.27205737536897,
+        "stats": {
+          "rme": 3.6934060392351857,
+          "mean": 0.004400012969251084
+        }
+      }
+    ]
+  }
+]

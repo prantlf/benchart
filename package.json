@@ -1,0 +1,74 @@
+{
+  "name": "benchart",
+  "description": "Plots a performance chart for Benchmark.js results saved by astrobench-cli.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ferdinand Prantl",
+    "email": "prantlf@gmail.com",
+    "url": "http://prantl.tk"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/prantlf/benchart/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "https://github.com/prantlf/benchart#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prantlf/benchart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prantlf/benchart/issues"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "benchart": "./bin/benchart"
+  },
+  "main": "lib/plotter.js",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "lint": "eslint --fix bin/* lib/**/*.js 'test/*.js'",
+    "check": "nyc --silent node test/compare-test-names && nyc --silent --no-clean node test/plotter && nyc --silent --no-clean ./bin/benchart && nyc report && nyc check-coverage",
+    "test": "npm run lint && npm run check"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "branches": 50,
+    "lines": 80,
+    "functions": 90,
+    "statements": 80
+  },
+  "keywords": [
+    "benchmark",
+    "astrobench",
+    "chart",
+    "timeline",
+    "comparison"
+  ],
+  "dependencies": {
+    "commander": "4.1.1",
+    "execa": "4.0.0",
+    "fs-extra": "8.1.0"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "nyc": "15.0.0",
+    "test": "0.6.0"
+  }
+}

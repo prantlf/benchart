@@ -1,0 +1,130 @@
+#!/usr/bin/env node
+
+const commander = require('commander')
+const { version, description } = require('../package.json')
+const plotChart = require('../lib/plotter')
+const { stat } = require('fs-extra')
+
+commander
+  .version(version)
+  .description(description)
+  .usage('[options] <directory>|<file> ...')
+  .option('-d, --out-directory <path>', 'path to the output directory')
+  .option('-n, --out-name <name>', 'file name of the written chart', 'chart')
+  .option('-p, --type <type>', 'type of the chart', 'timeline')
+  .option('-t, --title <title>', 'chart title', 'Benchmark Results')
+  .option('-w, --width <number>', 'width of the charter in pixels')
+  .option('-g, --height <number>', 'height of the charter in pixels')
+  .option('-i, --y-min <number>', 'minimum value on the y axis')
+  .option('-a, --y-max <number>', 'maximum value on the y axis')
+  .option('-y, --y-property <name>', 'property shown on the y axis', 'hz')
+  .option('-r, --error-bars', 'show standard error of the mean')
+  .option('-b, --x-label <label>', 'label of the x axis')
+  .option('-e, --y-label <label>', 'label of the y axis')
+  .option('-c, --cluster-by <input>', 'cluster histogram bars')
+  .option('-l, --legend-place <place>', 'legend placement', 'outside')
+  .option('-v, --verbose', 'print progress of the plotting')
+  .on('--help', () => {
+    console.log(`
+ Reads all "*.json" files from the specified directory, unless a list of
+ files is specified. The chart will be written to the input directory,
+ unless an output directory is specified. Chart types are "timeline" or
+ "comparison". Histograms can be clustered by "benchmark" or "suite".
+ Legend places are "left", "right", "outside" and "under". Property shown
+ on the y axis can be "hz" or "mean".
+
+Examples:
+
+ $ benchart results
+ $ benchart -rv -t "Sizes" -d results -n comparison \\
+     -p comparison results/50.json results/100.json`)
+  })
+  .parse(process.argv)
+
+let directory = commander.args[0]
+if (!directory) {
+  commander.help()
+}
+
+function validate (condition, message) {
+  if (!condition) {
+    console.error(message)
+    process.exit(1)
+  }
+}
+
+let {
+  type,
+  title,
+  width,
+  height,
+  xLabel,
+  yLabel,
+  clusterBy,
+  legendPlace,
+  yMin,
+  yMax,
+  yProperty,
+  errorBars,
+  outDirectory,
+  outName,
+  verbose
+} = commander
+validate(['hz', 'mean'].includes(yProperty),
+  'Y axis can show either "hz" or "mean".')
+validate(width === undefined || /^[.0-9]+$/.test(width),
+  'The width of the chart has to be undefined or a number.')
+validate(height === undefined || /^[.0-9]+$/.test(height),
+  'The height of the chart has to be undefined or a number.')
+validate(yMin === undefined || /^[.0-9]+$/.test(yMin),
+  'The minimum time for the y axis has to be undefined or a number.')
+validate(yMax === undefined || /^[.0-9]+$/.test(yMax),
+  'The maximum time for the y axis has to be undefined or a number.')
+if (width !== undefined) {
+  width = +width
+}
+if (height !== undefined) {
+  height = +height
+}
+if (yMin !== undefined) {
+  yMin = +yMin
+}
+if (yMax !== undefined) {
+  yMax = +yMax
+}
+
+async function main () {
+  const input = await stat(directory)
+  let files
+  if (input.isFile()) {
+    files = commander.args
+    directory = undefined
+  }
+  await plotChart({
+    directory,
+    files,
+    type,
+    title,
+    width,
+    height,
+    xLabel,
+    yLabel,
+    clusterBy,
+    legendPlace,
+    yMin,
+    yMax,
+    yProperty,
+    errorBars,
+    outDirectory,
+    outName,
+    verbose
+  })
+}
+
+function handleError ({ message, stack }) {
+  console.error(verbose ? stack : message)
+  process.exitCode = 1
+}
+
+main()
+  .catch(handleError)
