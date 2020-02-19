@@ -11,6 +11,28 @@ Plots a performance chart for [Benchmark.js] results saved by [astrobench-cli].
 
 ![timeline example](doc/timeline.png) ![comparison example](doc/comparison.png)
 
+## Pre-requisites
+
+Chart generation requires [`gnuplot`] installed. It is freely available on any platform.
+
+On Linux, install from the distribution package. For example, on [Ubuntu]:
+
+```
+sudo apt install gnuplot
+```
+
+Using [Homebrew] on OSX:
+
+```
+brew install gnuplot
+```
+
+Using [Chocolatey] on Windows:
+
+```
+choco install gnuplot
+```
+
 ## Getting Started
 
 Make sure that you have [Node.js] >= 10 installed. Install `benchart` globally:
@@ -125,6 +147,8 @@ Recognised options:
 * `directory: string` - directory to look for the input JSON files
 * `verbose: boolean` - print progress of the chart generation (default: `false`)
 
+## Data
+
 An example of a JSON file with test results. Benchmark properties `aborted`, `error`, `hz`, `stats` and `times` are described in the [Benchmark.js documentation]:
 
 ```json
@@ -172,6 +196,10 @@ Copyright (c) 2020 Ferdinand Prantl
 
 Licensed under the MIT license.
 
+[`gnuplot`]: http://www.gnuplot.info/
+[Ubuntu]: https://ubuntu.com/
+[Homebrew]: https://brew.sh/
+[Chocolatey]: https://chocolatey.org/
 [astrobench-cli]: http://github.com/prantlf/astrobench-cli
 [Benchmark.js]: https://benchmarkjs.com/
 [Node.js]: http://nodejs.org/
