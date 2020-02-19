@@ -8,6 +8,10 @@ node_js:
   - node
   - lts/*
   - 8
+addons:
+  apt:
+    packages:
+    - gnuplot
 after_success:
   - npx codecov
   - npx semantic-release
