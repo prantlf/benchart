@@ -13,7 +13,7 @@ Plots a performance chart for [Benchmark.js] results saved by [astrobench-cli].
 
 ## Getting Started
 
-Make sure that you have [Node.js] >= 8 installed. Install `benchart` globally:
+Make sure that you have [Node.js] >= 10 installed. Install `benchart` globally:
 
 ```
 npm i -g benchart
@@ -102,7 +102,7 @@ Examples:
 
 ## Programmatic Usage
 
-Make sure that you have [Node.js] >= 8 installed. Install `benchart` locally in your project  with [npm] or [yarn]:
+Make sure that you have [Node.js] >= 10 installed. Install `benchart` locally in your project  with [npm] or [yarn]:
 
 ```
 npm i benchart
