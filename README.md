@@ -138,7 +138,7 @@ An example of a JSON file with test results. Benchmark properties `aborted`, `er
         "hz": 21672040.42791444,
         "stats": {
           "rme": 1.394724557215958,
-`         "mean": 4.2691777736331135e-8
+          "mean": 4.2691777736331135e-8
         }
       },
       {
