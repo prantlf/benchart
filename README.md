@@ -145,6 +145,21 @@ The main module exports a function which generates the chart to the output direc
 Recognised options:
 
 * `directory: string` - directory to look for the input JSON files
+* `out-directory: string` - path to the output directory
+* `out-name: string` - file name of the written chart (default: "chart")
+* `type: string` - type of the chart (default: "timeline", otherwise: "comparison")
+* `title: string` - chart title (default: "Benchmark Results")
+* `width: number` - width of the charter in pixels
+* `height: number` - height of the charter in pixels
+* `y-min: number` - minimum value on the y axis
+* `y-max: number` - maximum value on the y axis
+* `y-property: string` - property shown on the y axis (default: "hz", otherwise: "mean")
+* `error-bars: boolean` - show standard error of the mean (default: `false`)
+* `x-label: string` - label of the x axis
+* `y-label: string` - label of the y axis
+* `cluster-by: string` - cluster histogram bars by "benchmark" or "suite"
+* `legend-place: string` - legend placement (default: "outside", otherwise: "left", "right", and "under")
+* `verbose: boolean` - print progress of the plotting
 * `verbose: boolean` - print progress of the chart generation (default: `false`)
 
 ## Data
