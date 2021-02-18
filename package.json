@@ -57,18 +57,18 @@
     "comparison"
   ],
   "dependencies": {
-    "commander": "4.1.1",
-    "execa": "4.0.0",
-    "fs-extra": "8.1.0"
+    "commander": "7.1.0",
+    "execa": "5.0.0",
+    "fs-extra": "9.1.0"
   },
   "devDependencies": {
-    "eslint": "6.8.0",
-    "eslint-config-standard": "14.1.0",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-node": "11.0.0",
-    "eslint-plugin-promise": "4.2.1",
+    "eslint": "7.20.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.3.1",
     "eslint-plugin-standard": "4.0.1",
-    "nyc": "15.0.0",
+    "nyc": "15.1.0",
     "test": "0.6.0"
   }
 }

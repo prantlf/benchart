@@ -69,7 +69,7 @@ let {
   outDirectory,
   outName,
   verbose
-} = commander
+} = commander.opts()
 validate(['hz', 'mean'].includes(yProperty),
   'Y axis can show either "hz" or "mean".')
 validate(width === undefined || /^[.0-9]+$/.test(width),
