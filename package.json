@@ -1,7 +1,7 @@
 {
   "name": "benchart",
   "description": "Plots a performance chart for Benchmark.js results saved by astrobench-cli.",
-  "version": "0.0.0-development",
+  "version": "1.0.1",
   "author": {
     "name": "Ferdinand Prantl",
     "email": "prantlf@gmail.com",
@@ -32,22 +32,12 @@
     "lib"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=18"
   },
   "scripts": {
-    "lint": "eslint --fix bin/* lib/**/*.js 'test/*.js'",
-    "check": "nyc --silent node test/compare-test-names && nyc --silent --no-clean node test/plotter && nyc --silent --no-clean ./bin/benchart && nyc report && nyc check-coverage",
+    "lint": "oxlint --fix bin/* lib/**/*.js 'test/*.js'",
+    "check": "rm-j -rf coverage/* && NODE_V8_COVERAGE=coverage node --test --experimental-test-coverage test/compare-test-names.js && NODE_V8_COVERAGE=coverage node --test --experimental-test-coverage test/plotter.js && NODE_V8_COVERAGE=coverage node --test --experimental-test-coverage ./bin/benchart",
     "test": "npm run lint && npm run check"
-  },
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "branches": 50,
-    "lines": 80,
-    "functions": 90,
-    "statements": 80
   },
   "keywords": [
     "benchmark",
@@ -57,18 +47,13 @@
     "comparison"
   ],
   "dependencies": {
-    "commander": "7.1.0",
-    "execa": "5.0.0",
-    "fs-extra": "9.1.0"
+    "commander": "^11.1.0",
+    "execa": "^5.0.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0"
   },
   "devDependencies": {
-    "eslint": "7.20.0",
-    "eslint-config-standard": "16.0.2",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "4.3.1",
-    "eslint-plugin-standard": "4.0.1",
-    "nyc": "15.1.0",
-    "test": "0.6.0"
+    "@unixcompat/rm.js": "^3.0.0",
+    "oxlint": "^0.1.1"
   }
 }

@@ -1,9 +1,8 @@
 # benchart
-[![NPM version](https://badge.fury.io/js/benchart.png)](http://badge.fury.io/js/benchart)
-[![Build Status](https://travis-ci.org/prantlf/benchart.png)](https://travis-ci.org/prantlf/benchart)
-[![codecov](https://codecov.io/gh/prantlf/benchart/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/benchart)
-[![Dependency Status](https://david-dm.org/prantlf/benchart.svg)](https://david-dm.org/prantlf/benchart)
-[![devDependency Status](https://david-dm.org/prantlf/benchart/dev-status.svg)](https://david-dm.org/prantlf/benchart#info=devDependencies)
+
+[![Latest version](https://img.shields.io/npm/v/benchart)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/benchart)
+](https://www.npmjs.com/package/benchart)
 
 [![NPM Downloads](https://nodei.co/npm/benchart.png?downloads=true&stars=true)](https://www.npmjs.com/package/benchart)
 
@@ -53,8 +52,8 @@ Testing page:
 
 ```html
 <link rel="stylesheet"
-      href="https://unpkg.com/@prantlf/astrobench@1.1.0/dist/astrobench.min.css">
-<script src="https://unpkg.com/@prantlf/astrobench@1.1.0/dist/astrobench.min.js"></script>
+      href="https://unpkg.com/@prantlf/astrobench@2.0.0/dist/astrobench.min.css">
+<script src="https://unpkg.com/@prantlf/astrobench@2.0.0/dist/astrobench.min.js"></script>
 
 <div id="astrobench"></div>
 
@@ -124,7 +123,7 @@ Examples:
 
 ## Programmatic Usage
 
-Make sure that you have [Node.js] >= 10 installed. Install `benchart` locally in your project  with [npm] or [yarn]:
+Make sure that you have [Node.js] >= 18 installed. Install `benchart` locally in your project  with [npm] or [yarn]:
 
 ```
 npm i benchart
