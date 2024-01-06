@@ -207,7 +207,7 @@ your code using `npm`.
 
 ## License
 
-Copyright (c) 2020 Ferdinand Prantl
+Copyright (c) 2020-2024 Ferdinand Prantl
 
 Licensed under the MIT license.
 
